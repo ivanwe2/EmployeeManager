@@ -1,0 +1,15 @@
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\bin\Debug\net6.0\BusinessLayer.deps.json
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\bin\Debug\net6.0\BusinessLayer.dll
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\bin\Debug\net6.0\BusinessLayer.pdb
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.csproj.CopyComplete
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.dll
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\refint\BusinessLayer.dll
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\BusinessLayer.pdb
+C:\Users\rusev\Desktop\ProjectCompanyManager\EmployeeManagerAssignment\BusinessLayer\obj\Debug\net6.0\ref\BusinessLayer.dll
