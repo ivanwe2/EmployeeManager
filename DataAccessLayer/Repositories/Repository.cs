@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class //using class instead of base entity bc i have two
+
+    public class Repository<T> : IRepository<T> where T : class 
         //allows me to choose which class type later
     {
-        private EmployeeManagerAssingmentDbContext db;
-        private DbSet<T> dbSet;
+        /// <summary>
+        /// implement only CRUD operations for db 
+        /// </summary>
+        protected EmployeeManagerAssingmentDbContext db;
+        protected DbSet<T> dbSet;
 
         public Repository()
         {
@@ -38,10 +42,12 @@ namespace DataAccessLayer.Repositories
         public void Insert(T obj)
         {
             dbSet.Add(obj);
+            db.SaveChanges();
         }
         public void Update(T obj)
         {
             db.Entry(obj).State = EntityState.Modified;
+            db.SaveChanges();
         }
         public void Delete(Guid Id)
         {
@@ -51,22 +57,9 @@ namespace DataAccessLayer.Repositories
                 throw new ArgumentException("object to be deleted is null");
             }
             dbSet.Remove(getObjById);
-        }
-        public void Save()
-        {
             db.SaveChanges();
         }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (this.db != null)
-                {
-                    this.db.Dispose();
-                    //this.db = null;
-                }
-            }
-        }
+       
 
 
     }

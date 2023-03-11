@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entities
 {
-    public class Employee : BaseUserEntity
+    public class Employee : BaseHumanEntity
     {
         [Display(Name = "Employer")]
         [Required(ErrorMessage = "Employer is required")]
         [ForeignKey("Employer")]
-        public Guid EmployerId { get; internal set; }
+        public Guid EmployerId { get;  set; }
 
+        [NotMapped]
+        public IEnumerable<TaskWork>? Tasks { get; set; }
         public int CompletedTaskCouner { get;  set; } //update when task is marked completed in services
 
     }

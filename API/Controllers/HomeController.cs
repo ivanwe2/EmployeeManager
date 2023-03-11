@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using BusinessLayer;
+using BusinessLayer.Services;
+using DataAccessLayer.Entities;
+using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore;
+using BusinessLayer.Services.EntityServices;
 
 namespace API.Controllers
 {
@@ -12,17 +16,20 @@ namespace API.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            
         }
+
+        //public HomeController(IEntityService<Employee> service)
+        //{
+        //    _service = service;
+        //}
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

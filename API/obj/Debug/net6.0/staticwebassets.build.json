@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "agLNlssgGkcUF1hX833UhCb1Z0n8PzaOGwBjG22hqVE=",
+  "Hash": "3iFygOQUF7fnCzk84y7URexZIC/vnVfO5P7nSk6h21U=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\API\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\API.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\API\\wwwroot\\css\\bg-login.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "css/bg-login.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bg-login.png"
     },
     {
       "Identity": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\API\\wwwroot\\css\\site.css",
