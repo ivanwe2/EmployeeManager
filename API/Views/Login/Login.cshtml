@@ -1,0 +1,59 @@
+﻿@{
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
+}
+
+<style>
+    
+      
+</style>
+
+
+@if (!string.IsNullOrEmpty(error))
+{
+    <h2 class="alert-danger" style="padding:20px">@error</h2>
+}
+
+
+<div id="intro" class=" shadow-2-strong">
+    <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+            
+            <div class="row justify-content-center">
+                
+                <div class="col-xl-5 col-md-8">
+                    <h1 class="text-center">Login as Employer</h1>
+                    <form class="bg-white  rounded-5 shadow-5-strong p-5" action="/Login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" name="email" placeholder="Email address" class="form-control" />
+                            
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="password" placeholder="Password" class="form-control" />
+                            
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                                    <label class="form-check-label" for="form1Example3">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>                          
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

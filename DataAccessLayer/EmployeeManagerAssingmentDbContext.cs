@@ -15,6 +15,12 @@ namespace DataAccessLayer
 
         }
 
+        public EmployeeManagerAssingmentDbContext(DbContextOptions<EmployeeManagerAssingmentDbContext> options)
+            :base(options)
+        {
+
+        }
+
         //overriding to specify which db we will be using
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

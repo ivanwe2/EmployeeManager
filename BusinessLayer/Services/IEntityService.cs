@@ -4,10 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace BusinessLayer.Services
 {
-    internal interface IEntityService
+    public interface IEntityService<T> where T : class
     {
-        //crudovete + dopylnitelni neshta kato assing task done i takiva
+        IEnumerable<T> GetAll();
+        T GetById(Guid Id);
+        void Create(T obj);
+        void Update(T obj);
+        void Delete(Guid Id);
+     
     }
 }

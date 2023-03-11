@@ -13,6 +13,6 @@ namespace DataAccessLayer.Repositories
         void Insert(T obj);
         void Update(T obj);
         void Delete(Guid Id);
-        void Save();
+        
     }
 }

@@ -35,6 +35,9 @@
             "projectReferences": {
               "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\BusinessLayer\\BusinessLayer.csproj": {
                 "projectPath": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\BusinessLayer\\BusinessLayer.csproj"
+              },
+              "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\rusev\\Desktop\\ProjectCompanyManager\\EmployeeManagerAssignment\\DataAccessLayer\\DataAccessLayer.csproj"
               }
             }
           }
@@ -48,6 +51,18 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

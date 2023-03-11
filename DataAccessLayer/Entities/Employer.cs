@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entities
 {
-    public class Employer : BaseUserEntity
+    public class Employer : BaseHumanEntity
     {
         [NotMapped]
         public IEnumerable<Employee> Employees { get; set; }
