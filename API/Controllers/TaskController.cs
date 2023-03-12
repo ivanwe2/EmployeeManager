@@ -75,11 +75,37 @@ namespace API.Controllers
         {
             var task = _taskService.GetById(id);
             task.IsDone = true;
+            task.DueDate= DateTime.Now;
+           
             var employee = _employeeService.GetById(task.AssigneeId);
             employee.CompletedTaskCouner += 1;
 
             _taskService.Update(task);
             _employeeService.Update(employee);
+            return View("Index");
+        }
+
+        public IActionResult Edit(Guid id)
+        {
+            TaskWork a =_taskService.GetById(id);
+            TaskViewModel b = new TaskViewModel()
+            {
+                Id = id,
+                Title = a.Title,
+                Description = a.Description,
+                DueDate = DateTime.Now,
+                IsDone = a.IsDone,
+                Assignee = new EmployeeViewModel()
+            };
+            return View(b);
+        }
+        public IActionResult EditTask(Guid id,string title,string description,DateTime due)
+        {
+            TaskWork task = _taskService.GetById(id);
+            task.Title = title;
+            task.Description = description;
+            task.DueDate = due;
+            _taskService.Update(task);
             return View("Index");
         }
     }

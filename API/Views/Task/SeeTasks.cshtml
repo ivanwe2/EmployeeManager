@@ -20,10 +20,10 @@
             </th>
             
             <th>
-                @Html.DisplayNameFor(model => model.DueDate)
+                Due date / Completed date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsDone)
+                Status
             </th>
             <th></th>
         </tr>
@@ -48,7 +48,7 @@
                 @if (!item.IsDone)
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |                   
+                        <a asp-controller="Task" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |                   
                     <a asp-action="MarkAsDone" asp-route-id="@item.Id">Mark as done</a>
                 </td>
                 }
