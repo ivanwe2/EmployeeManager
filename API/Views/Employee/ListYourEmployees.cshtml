@@ -9,7 +9,9 @@
 
 
 <h5 class="mt-3"><a  asp-area="" asp-controller="Employee" asp-action="CreateEmployee">Create new employee</a></h5>
+<h5></h5>
 
+    
 <table class="table">
     <thead>
         <tr>
@@ -28,10 +30,11 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Salary)
-            </th>
+            </th>            
             <th>
-                Tasks completed
+                Progress
             </th>
+            
             <th>Actions</th>
         </tr>
     </thead>
@@ -56,9 +59,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Salary)
             </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CompletedTaskCouner)
-                </td>
+             <td>
+                    <!--not implemented due to lack of time-->
+                    <div class="progress" aria-label="progress">
+                        <div id="progress" aria-labelledby="progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="5" aria-valuemin="0" ia-valuemax="10">
+                        </div>
+                    </div>
+             </td>
             <td>
                     <a asp-area="" asp-controller="Task" asp-action="SeeTasks" asp-route-id="@item.Id">See Tasks</a> |
                     <a asp-area="" asp-controller="Task" asp-action="Create" asp-route-id="@item.Id">Assign new Task</a> |

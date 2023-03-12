@@ -40,6 +40,15 @@ namespace API.Controllers
         {
             var employee = _employeeService.GetById(id);
 
+            List<TaskWork> tasksToRemove = _taskService.GetAll().Where(x => x.AssigneeId == id).ToList();
+            if(tasksToRemove.Any())
+            {
+                for (int i = 0; i < tasksToRemove.Count; i++)
+                {
+                    _taskService.Delete(tasksToRemove[i].Id);
+                }
+            }
+
             EmployeeViewModel employeeVM = _employeeService.ConvertEntityToViewModel(employee);
             return View(employeeVM);
         }
@@ -120,16 +129,24 @@ namespace API.Controllers
                 }
             }
 
-            employeeTaskCompletedCounted.OrderByDescending(x => x.Value);
-            List<Guid> guids = new List<Guid>(employeeTaskCompletedCounted.Keys);
+        
+            //get all employees ids who have completed a task this month
+            List<Guid> bestEmployeeGuids = new List<Guid>();
+
+            foreach (KeyValuePair<Guid,int> item in employeeTaskCompletedCounted.OrderBy(key=> key.Value))
+            {
+                bestEmployeeGuids.Add(item.Key);
+            }
+
+            
 
             //List<Employee> listEmployees = _employeeService.GetAll().OrderByDescending(x=>x.CompletedTaskCouner).ToList();
             
             List<EmployeeViewModel> employeesVM = new List<EmployeeViewModel>();
 
-            for (int i = 0; i < 5 && i < guids.Count; i++)            
+            for (int i = 0; i < 5 && i < bestEmployeeGuids.Count; i++)            
             {
-                Employee employee = _employeeService.GetById(guids[i]);
+                Employee employee = _employeeService.GetById(bestEmployeeGuids[i]);
                 EmployeeViewModel employeeVM = _employeeService.ConvertEntityToViewModel(employee);//convert to viewmodel
 
                 Employer employer = _employerService.GetById(employee.EmployerId);//get employer data with appropriate service
