@@ -99,12 +99,13 @@ namespace API.Controllers
             };
             return View(b);
         }
-        public IActionResult EditTask(Guid id,string title,string description,DateTime due)
+        public IActionResult EditTask(Guid id,string title,string description,DateTime due,bool done)
         {
             TaskWork task = _taskService.GetById(id);
             task.Title = title;
             task.Description = description;
             task.DueDate = due;
+            task.IsDone = done;
             _taskService.Update(task);
             return View("Index");
         }
