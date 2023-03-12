@@ -11,6 +11,7 @@ using BusinessLayer.Services.EntityServices;
 using DataAccessLayer.Entities;
 using API.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DataAccessLayer.Initializer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddDbContext<EmployeeManagerAssingmentDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddTransient<DbInitialiser>();//ensure db is created with same migrations and seed for new machine
 
 
 //Transient objects are always different; a new instance is provided to every controller and every service.
@@ -70,6 +73,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+//run the run method to ensure db creation from existing migrations 
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var init = services.GetRequiredService<DbInitialiser>();
+init.Run();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
