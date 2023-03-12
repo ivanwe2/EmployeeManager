@@ -28,6 +28,7 @@ namespace DataAccessLayer
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=EmployeeManagerDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
+
         //overriding to insert data when model is created
         //alternative seeding
         protected override void OnModelCreating(ModelBuilder modelBuilder)
