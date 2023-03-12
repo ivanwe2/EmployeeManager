@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System;
 using System.Security.Claims;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -102,21 +103,42 @@ namespace API.Controllers
         }
         public IActionResult ListBestEmployees()
         {
-            //FIX URGENT
-            
-            List<Employee> listEmployees = _employeeService.GetAll().OrderByDescending(x=>x.CompletedTaskCouner).ToList();
-            List<EmployeeViewModel> employeesVM = new List<EmployeeViewModel>();
-            for (int i = 0; i < 5 && i < listEmployees.Count; i++)            
+            //decided not to remodel database and use what i have at hand
+            //once a task is completed its due date property now stores the time of completion
+            //any task marked as completed will have its due date changet to datetime.now
+            var latestCompletedTasks=_taskService.GetAll().Where(x => x.IsDone == true).Where(x=>x.DueDate.Value.Month == DateTime.Now.Month).ToList();
+            Dictionary<Guid,int> employeeTaskCompletedCounted = new Dictionary<Guid,int>();
+            foreach (var item in latestCompletedTasks)
             {
-                EmployeeViewModel employeeVM = _employeeService.ConvertEntityToViewModel(listEmployees[i]);//convert to viewmodel
+                if(!employeeTaskCompletedCounted.ContainsKey(item.AssigneeId))
+                {
+                    employeeTaskCompletedCounted.Add(item.AssigneeId, 1);
+                }
+                else
+                {
+                    employeeTaskCompletedCounted[item.AssigneeId]++;
+                }
+            }
 
-                Employer employer = _employerService.GetById(listEmployees[i].EmployerId);//get employer data with appropriate service
+            employeeTaskCompletedCounted.OrderByDescending(x => x.Value);
+            List<Guid> guids = new List<Guid>(employeeTaskCompletedCounted.Keys);
+
+            //List<Employee> listEmployees = _employeeService.GetAll().OrderByDescending(x=>x.CompletedTaskCouner).ToList();
+            
+            List<EmployeeViewModel> employeesVM = new List<EmployeeViewModel>();
+
+            for (int i = 0; i < 5 && i < guids.Count; i++)            
+            {
+                Employee employee = _employeeService.GetById(guids[i]);
+                EmployeeViewModel employeeVM = _employeeService.ConvertEntityToViewModel(employee);//convert to viewmodel
+
+                Employer employer = _employerService.GetById(employee.EmployerId);//get employer data with appropriate service
                 employeeVM.EmployerInfo = employer.Name + " " + employer.Email;
                 
                 
                 employeesVM.Add(employeeVM);
             }
-            
+            employeesVM.Reverse();//items are ordered but from bottom to top 
             return View(employeesVM);
         }
 
